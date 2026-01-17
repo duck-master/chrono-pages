@@ -147,7 +147,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
           </div>
         )}
 
-        {/* Tofu dishes grid */}
+        {/* Dishes grid */}
         {page.dishes && (
           <>
             <div
