@@ -1,4 +1,4 @@
-import { PageViewer } from '@/components/PageViewer';
+import { PageViewer } from "@/components/PageViewer";
 
 const Index = () => {
   return <PageViewer />;

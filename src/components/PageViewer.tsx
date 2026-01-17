@@ -1,11 +1,11 @@
-import { useState, useCallback, useEffect } from 'react';
-import { pagesData } from '@/data/pages';
-import { PageContent } from './PageContent';
-import { PageNavigation } from './PageNavigation';
-import { Theme } from '@/types/page';
+import { useState, useCallback, useEffect } from "react";
+import { pagesData } from "@/data/pages";
+import { PageContent } from "./PageContent";
+import { PageNavigation } from "./PageNavigation";
+import { Theme } from "@/types/page";
 
 const getThemeClass = (theme: Theme): string => {
-  if (theme === 'welcome') return 'theme-present';
+  if (theme === "welcome") return "theme-present";
   return `theme-${theme}`;
 };
 
@@ -13,16 +13,19 @@ export const PageViewer = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const changePage = useCallback((newPage: number) => {
-    if (newPage < 0 || newPage >= pagesData.length || isTransitioning) return;
-    
-    setIsTransitioning(true);
-    setCurrentPage(newPage);
-    
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 600);
-  }, [isTransitioning]);
+  const changePage = useCallback(
+    (newPage: number) => {
+      if (newPage < 0 || newPage >= pagesData.length || isTransitioning) return;
+
+      setIsTransitioning(true);
+      setCurrentPage(newPage);
+
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 600);
+    },
+    [isTransitioning],
+  );
 
   const handlePrevious = useCallback(() => {
     changePage(currentPage - 1);
@@ -32,23 +35,30 @@ export const PageViewer = () => {
     changePage(currentPage + 1);
   }, [currentPage, changePage]);
 
-  const handleGoToPage = useCallback((index: number) => {
-    changePage(index);
-  }, [changePage]);
+  const handleGoToPage = useCallback(
+    (index: number) => {
+      changePage(index);
+    },
+    [changePage],
+  );
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
         handlePrevious();
-      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') {
+      } else if (
+        e.key === "ArrowRight" ||
+        e.key === "ArrowDown" ||
+        e.key === " "
+      ) {
         e.preventDefault();
         handleNext();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handlePrevious, handleNext]);
 
   // Touch/swipe support
@@ -63,7 +73,7 @@ export const PageViewer = () => {
     const handleTouchEnd = (e: TouchEvent) => {
       touchEndX = e.changedTouches[0].screenX;
       const swipeThreshold = 50;
-      
+
       if (touchStartX - touchEndX > swipeThreshold) {
         handleNext();
       } else if (touchEndX - touchStartX > swipeThreshold) {
@@ -71,12 +81,12 @@ export const PageViewer = () => {
       }
     };
 
-    window.addEventListener('touchstart', handleTouchStart);
-    window.addEventListener('touchend', handleTouchEnd);
-    
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+
     return () => {
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, [handlePrevious, handleNext]);
 
@@ -85,12 +95,12 @@ export const PageViewer = () => {
 
   return (
     <div className={`relative min-h-screen ${themeClass}`}>
-      <PageContent 
+      <PageContent
         key={currentPage}
-        page={currentPageData} 
+        page={currentPageData}
         isActive={!isTransitioning}
       />
-      
+
       <PageNavigation
         currentPage={currentPage}
         totalPages={pagesData.length}

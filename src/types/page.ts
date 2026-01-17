@@ -1,4 +1,4 @@
-export type Theme = 'past' | 'present' | 'future' | 'welcome';
+export type Theme = "past" | "present" | "future" | "welcome";
 
 export interface TofuDish {
   name: string;

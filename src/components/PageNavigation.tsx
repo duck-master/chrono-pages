@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { PageData, Theme } from '@/types/page';
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { PageData, Theme } from "@/types/page";
 
 interface PageNavigationProps {
   currentPage: number;
@@ -11,16 +11,16 @@ interface PageNavigationProps {
 }
 
 const getThemeClass = (theme: Theme): string => {
-  if (theme === 'welcome') return 'theme-present';
+  if (theme === "welcome") return "theme-present";
   return `theme-${theme}`;
 };
 
 // Map theme to distinct HSL accent colors
 const themeAccentColors: Record<Theme, string> = {
-  welcome: '140 55% 35%',  // green (same as present)
-  past: '20 70% 40%',      // warm brown
-  present: '140 55% 35%',  // green
-  future: '195 70% 42%',   // cyan blue
+  welcome: "140 55% 35%", // green (same as present)
+  past: "20 70% 40%", // warm brown
+  present: "140 55% 35%", // green
+  future: "195 70% 42%", // cyan blue
 };
 
 export const PageNavigation = ({
@@ -31,10 +31,12 @@ export const PageNavigation = ({
   onNext,
   onGoToPage,
 }: PageNavigationProps) => {
-  const currentTheme = pages[currentPage]?.theme || 'present';
+  const currentTheme = pages[currentPage]?.theme || "present";
 
   return (
-    <div className={`fixed bottom-0 left-0 right-0 z-50 ${getThemeClass(currentTheme)}`}>
+    <div
+      className={`fixed bottom-0 left-0 right-0 z-50 ${getThemeClass(currentTheme)}`}
+    >
       <div className="flex items-center justify-center gap-4 p-6 bg-gradient-to-t from-black/10 to-transparent">
         {/* Previous button */}
         <button
@@ -42,14 +44,15 @@ export const PageNavigation = ({
           disabled={currentPage === 0}
           className={`
             p-3 rounded-full transition-all duration-300
-            ${currentPage === 0 
-              ? 'opacity-30 cursor-not-allowed' 
-              : 'opacity-70 hover:opacity-100 hover:scale-110'
+            ${
+              currentPage === 0
+                ? "opacity-30 cursor-not-allowed"
+                : "opacity-70 hover:opacity-100 hover:scale-110"
             }
           `}
-          style={{ 
+          style={{
             backgroundColor: `hsl(${themeAccentColors[currentTheme]} / 0.2)`,
-            color: `hsl(${themeAccentColors[currentTheme]})`
+            color: `hsl(${themeAccentColors[currentTheme]})`,
           }}
           aria-label="Previous page"
         >
@@ -61,14 +64,14 @@ export const PageNavigation = ({
           {pages.map((page, index) => {
             const dotColor = themeAccentColors[page.theme];
             const isActive = index === currentPage;
-            
+
             return (
               <button
                 key={page.id}
                 onClick={() => onGoToPage(index)}
                 className={`
                   transition-all duration-300 rounded-full
-                  ${isActive ? 'w-8 h-3' : 'w-3 h-3 hover:scale-125'}
+                  ${isActive ? "w-8 h-3" : "w-3 h-3 hover:scale-125"}
                 `}
                 style={{
                   backgroundColor: isActive
@@ -87,14 +90,15 @@ export const PageNavigation = ({
           disabled={currentPage === totalPages - 1}
           className={`
             p-3 rounded-full transition-all duration-300
-            ${currentPage === totalPages - 1 
-              ? 'opacity-30 cursor-not-allowed' 
-              : 'opacity-70 hover:opacity-100 hover:scale-110'
+            ${
+              currentPage === totalPages - 1
+                ? "opacity-30 cursor-not-allowed"
+                : "opacity-70 hover:opacity-100 hover:scale-110"
             }
           `}
-          style={{ 
+          style={{
             backgroundColor: `hsl(${themeAccentColors[currentTheme]} / 0.2)`,
-            color: `hsl(${themeAccentColors[currentTheme]})`
+            color: `hsl(${themeAccentColors[currentTheme]})`,
           }}
           aria-label="Next page"
         >
@@ -103,9 +107,9 @@ export const PageNavigation = ({
       </div>
 
       {/* Page counter */}
-      <div 
+      <div
         className="absolute bottom-2 right-6 text-sm font-medium opacity-60"
-        style={{ color: 'hsl(var(--page-text))' }}
+        style={{ color: "hsl(var(--page-text))" }}
       >
         {currentPage + 1} / {totalPages}
       </div>

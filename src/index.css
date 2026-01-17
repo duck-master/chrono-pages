@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -59,8 +59,8 @@
     --future-muted: 195 25% 45%;
 
     /* Typography */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: "Playfair Display", serif;
+    --font-body: "Inter", sans-serif;
 
     /* Sidebar defaults */
     --sidebar-background: 0 0% 98%;
@@ -136,7 +136,12 @@
     font-family: var(--font-body);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-heading);
   }
 }
@@ -215,29 +220,33 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes slideUp {
-    from { 
-      opacity: 0; 
-      transform: translateY(30px); 
+    from {
+      opacity: 0;
+      transform: translateY(30px);
     }
-    to { 
-      opacity: 1; 
-      transform: translateY(0); 
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
   @keyframes slideInRight {
-    from { 
-      opacity: 0; 
-      transform: translateX(30px); 
+    from {
+      opacity: 0;
+      transform: translateX(30px);
     }
-    to { 
-      opacity: 1; 
-      transform: translateX(0); 
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }
