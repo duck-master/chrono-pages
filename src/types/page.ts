@@ -1,8 +1,8 @@
 export type Theme = "past" | "present" | "future" | "welcome";
 
-export interface TofuDish {
+export interface Dish {
   name: string;
-  image: string;
+  image?: string;
   url?: string;
 }
 
@@ -17,5 +17,5 @@ export interface PageData {
   prompts?: string[];
   funFacts?: string[];
   question?: string;
-  tofuDishes?: TofuDish[];
+  dishes?: Dish[];
 }
