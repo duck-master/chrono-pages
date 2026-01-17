@@ -2,7 +2,7 @@ import { PageData } from "@/types/page";
 
 import mapoTofu from "@/assets/mapo-tofu.jpg";
 import calendar from "@/assets/calendar.jpg";
-import family from "@/assets/family.jpg";
+import family from "@/assets/family.png";
 import tofu from "@/assets/tofu.jpg";
 import tofu1 from "@/assets/tofu1-agedashi.jpg";
 import tofu2 from "@/assets/tofu2-sundubu.jpg";
@@ -39,9 +39,9 @@ export const pagesData: PageData[] = [
     title: "Do you remember ...",
     imageUrl: family,
     prompts: [
-      "... where we went for dinner?",
-      "... what we bought at Disneyland?",
-      "... what rides we went on?",
+      "where we went for dinner?",
+      "what we bought at Disneyland?",
+      "what rides we went on?",
     ],
   },
   {

@@ -40,7 +40,7 @@
     /* Theme: Past - Warm Sepia/Brown tones (nostalgic) */
     --past-bg: 35 60% 92%;
     --past-accent: 20 70% 40%;
-    --past-accent-light: 25 50% 70%;
+    --past-accent-light: 25 65% 65%;
     --past-text: 20 35% 22%;
     --past-muted: 25 25% 45%;
 
@@ -54,7 +54,7 @@
     /* Theme: Future - Cool Cyan/Blue tones (forward-looking) */
     --future-bg: 52 60% 94%;
     --future-accent: 195 70% 42%;
-    --future-accent-light: 190 55% 68%;
+    --future-accent-light: 190 65% 65%;
     --future-text: 200 30% 20%;
     --future-muted: 195 25% 45%;
 
@@ -156,13 +156,13 @@
   .page-heading {
     font-family: var(--font-heading);
     color: hsl(var(--page-text));
-    @apply text-5xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-8;
+    @apply text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-8;
   }
 
   .page-subheading {
     font-family: var(--font-heading);
     color: hsl(var(--page-accent));
-    @apply text-2xl md:text-3xl font-medium mb-6;
+    @apply text-xl md:text-2xl font-medium mb-6;
   }
 
   .page-body {
@@ -223,6 +223,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -233,6 +234,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -244,6 +246,7 @@
       opacity: 0;
       transform: translateX(30px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);

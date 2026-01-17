@@ -34,7 +34,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
     if (page.highlightedWord) {
       return (
         <h1
-          className={`page-heading ${isActive ? "animate-slide-up" : ""}`}
+          className={`page-heading `}
           style={{ animationDelay: "0.2s" }}
         >
           {page.title}{" "}
@@ -45,7 +45,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
 
     return (
       <h1
-        className={`page-heading ${isActive ? "animate-slide-up" : ""}`}
+        className={`page-heading `}
         style={{ animationDelay: "0.2s" }}
       >
         {page.title}
@@ -55,12 +55,12 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
 
   return (
     <div
-      className={`page-container ${themeClass} ${isActive ? "animate-fade-in" : ""}`}
+      className={`page-container ${themeClass} `}
     >
       <div className="max-w-5xl mx-auto text-center w-full">
         {/* Theme indicator */}
         <div
-          className={`theme-indicator mb-6 ${isActive ? "animate-slide-up" : ""}`}
+          className={`theme-indicator mb-6 `}
           style={{ animationDelay: "0.1s" }}
         >
           {themeIcons[page.theme]}
@@ -72,7 +72,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
         {/* Subtitle */}
         {page.subtitle && (
           <p
-            className={`page-subheading ${isActive ? "animate-slide-up" : ""}`}
+            className={`page-subheading `}
             style={{ animationDelay: "0.15s" }}
           >
             {page.subtitle}
@@ -85,7 +85,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
         {/* Question (if no title) */}
         {!page.title && page.question && (
           <h1
-            className={`page-heading ${isActive ? "animate-slide-up" : ""}`}
+            className={`page-heading `}
             style={{ animationDelay: "0.2s" }}
           >
             {page.question}
@@ -94,14 +94,14 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
 
         {/* Decorative line */}
         <div
-          className={`accent-line w-32 mx-auto mb-8 ${isActive ? "animate-slide-up" : ""}`}
+          className={`accent-line w-32 mx-auto mb-8 `}
           style={{ animationDelay: "0.3s" }}
         />
 
         {/* Body text */}
         {page.body && (
           <p
-            className={`page-body mx-auto ${isActive ? "animate-slide-up" : ""}`}
+            className={`page-body mx-auto `}
             style={{ animationDelay: "0.4s" }}
           >
             {page.body}
@@ -111,7 +111,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
         {/* Prompts list */}
         {page.prompts && (
           <div
-            className={`mt-8 space-y-2 ${isActive ? "animate-slide-up" : ""}`}
+            className={`mt-8 space-y-2 `}
             style={{ animationDelay: "0.4s" }}
           >
             {page.prompts.map((prompt, index) => (
@@ -125,7 +125,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
         {/* Fun facts list */}
         {page.funFacts && (
           <div
-            className={`mt-8 space-y-3 ${isActive ? "animate-slide-up" : ""}`}
+            className={`mt-8 space-y-3 `}
             style={{ animationDelay: "0.4s" }}
           >
             {page.funFacts.map((fact, index) => (
@@ -143,13 +143,14 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
         {/* Main Image */}
         {page.imageUrl && !page.tofuDishes && (
           <div
-            className={`mt-10 rounded-3xl overflow-hidden shadow-xl mx-auto max-w-lg ${isActive ? "animate-slide-up" : ""}`}
+            className={`mt-10 mx-auto ${page.prompts || page.funFacts ? "max-w-xs" : "max-w-md"
+              } aspect-square `}
             style={{ animationDelay: "0.5s" }}
           >
             <img
               src={page.imageUrl}
               alt={page.title || "Page image"}
-              className="w-full h-56 md:h-72 object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
         )}
@@ -158,7 +159,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
         {page.tofuDishes && (
           <>
             <div
-              className={`mt-8 grid grid-cols-2 md:grid-cols-3 gap-4 ${isActive ? "animate-slide-up" : ""}`}
+              className={`mt-8 grid grid-cols-2 md:grid-cols-3 gap-4 `}
               style={{ animationDelay: "0.4s" }}
             >
               {page.tofuDishes.map((dish, index) => (
@@ -185,7 +186,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
             </div>
             {page.question && (
               <p
-                className={`page-question ${isActive ? "animate-slide-up" : ""}`}
+                className={`page-question `}
                 style={{ animationDelay: "0.6s" }}
               >
                 {page.question}
