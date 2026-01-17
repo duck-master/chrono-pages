@@ -10,16 +10,9 @@ interface PageNavigationProps {
   onGoToPage: (index: number) => void;
 }
 
-const themeColors: Record<Theme, string> = {
-  past: 'bg-past-accent',
-  present: 'bg-present-accent',
-  future: 'bg-future-accent',
-};
-
-const themeBorderColors: Record<Theme, string> = {
-  past: 'border-past-accent',
-  present: 'border-present-accent',
-  future: 'border-future-accent',
+const getThemeClass = (theme: Theme): string => {
+  if (theme === 'welcome') return 'theme-present';
+  return `theme-${theme}`;
 };
 
 export const PageNavigation = ({
@@ -33,7 +26,7 @@ export const PageNavigation = ({
   const currentTheme = pages[currentPage]?.theme || 'present';
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50">
+    <div className={`fixed bottom-0 left-0 right-0 z-50 ${getThemeClass(currentTheme)}`}>
       <div className="flex items-center justify-center gap-4 p-6 bg-gradient-to-t from-black/10 to-transparent">
         {/* Previous button */}
         <button

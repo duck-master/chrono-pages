@@ -2,6 +2,12 @@ import { useState, useCallback, useEffect } from 'react';
 import { pagesData } from '@/data/pages';
 import { PageContent } from './PageContent';
 import { PageNavigation } from './PageNavigation';
+import { Theme } from '@/types/page';
+
+const getThemeClass = (theme: Theme): string => {
+  if (theme === 'welcome') return 'theme-present';
+  return `theme-${theme}`;
+};
 
 export const PageViewer = () => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -75,7 +81,7 @@ export const PageViewer = () => {
   }, [handlePrevious, handleNext]);
 
   const currentPageData = pagesData[currentPage];
-  const themeClass = `theme-${currentPageData.theme}`;
+  const themeClass = getThemeClass(currentPageData.theme);
 
   return (
     <div className={`relative min-h-screen ${themeClass}`}>

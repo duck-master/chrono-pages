@@ -1,74 +1,93 @@
 import { PageData } from '@/types/page';
 
+import mapoTofu from '@/assets/mapo-tofu.jpg';
+import calendar from '@/assets/calendar.jpg';
+import family from '@/assets/family.jpg';
+import tofu from '@/assets/tofu.jpg';
+import tofu1 from '@/assets/tofu1-agedashi.jpg';
+import tofu2 from '@/assets/tofu2-sundubu.jpg';
+import tofu3 from '@/assets/tofu3-tahugoreng.jpg';
+import tofu4 from '@/assets/tofu4-tikkamasala.jpg';
+import tofu5 from '@/assets/tofu5-lasagna.jpg';
+import tofu6 from '@/assets/tofu6-steak.jpg';
+import spongebob from '@/assets/spongebob.jpg';
+
 export const pagesData: PageData[] = [
   {
     id: 1,
-    theme: 'past',
-    title: 'Where It All Began',
-    subtitle: 'The Foundation',
-    body: 'Every journey has a starting point. This is where our story begins, rooted in the moments that shaped everything that would follow.',
+    theme: 'welcome',
+    title: "Today's Dinner!",
+    imageUrl: mapoTofu,
   },
   {
     id: 2,
-    theme: 'past',
-    title: 'Lessons Learned',
-    subtitle: 'Wisdom from Yesterday',
-    body: 'The past holds treasures of experience and knowledge. These lessons became the stepping stones for what was to come.',
+    theme: 'welcome',
+    title: 'Today is',
+    highlightedWord: 'January 17th, 2026',
+    imageUrl: calendar,
   },
   {
     id: 3,
     theme: 'past',
-    title: 'Cherished Memories',
-    subtitle: 'Moments That Matter',
-    body: 'Some moments become eternal. They live on in our hearts, guiding us forward while keeping us grounded in who we are.',
+    title: 'Memory from',
+    highlightedWord: 'January 16th, 2018',
+    imageUrl: family,
   },
   {
     id: 4,
-    theme: 'present',
-    title: 'Here and Now',
-    subtitle: 'The Current Chapter',
-    body: 'This is where we stand today. Every decision, every action shapes the unfolding story of our present moment.',
+    theme: 'past',
+    title: 'Do you remember ...',
+    imageUrl: family,
+    prompts: [
+      '... where we went for dinner?',
+      '... what we bought at Disneyland?',
+      '... what rides we went on?',
+    ],
   },
   {
     id: 5,
     theme: 'present',
-    title: 'What We Build',
-    subtitle: 'Creating Today',
-    body: 'The present is our canvas. With each brushstroke, we paint the reality we wish to inhabit and share with others.',
+    title: "Today's dinner has",
+    highlightedWord: 'tofu!',
+    imageUrl: tofu,
   },
   {
     id: 6,
     theme: 'present',
-    title: 'Living Fully',
-    subtitle: 'Embracing the Moment',
-    body: 'To be fully present is a gift. It allows us to appreciate the beauty around us and the connections that make life meaningful.',
+    title: 'Fun Facts about',
+    highlightedWord: 'tofu!',
+    imageUrl: tofu,
+    funFacts: [
+      'Tofu was discovered 2,000 years ago by accident!',
+      'Tofu was first introduced to America as cheese!',
+      'Tofu has a layered, sponge-like texture when it\'s frozen!',
+    ],
   },
   {
     id: 7,
-    theme: 'future',
-    title: 'Dreams Ahead',
-    subtitle: 'Vision & Possibility',
-    body: 'The future stretches before us like an open road. It holds the promise of growth, discovery, and endless potential.',
+    theme: 'present',
+    title: 'These are dishes made with',
+    highlightedWord: 'tofu',
+    question: 'Which dish do you want to try?',
+    tofuDishes: [
+      { name: 'Agedashi Tofu', image: tofu1 },
+      { name: 'Sundubu Jjigae', image: tofu2 },
+      { name: 'Tahu Goreng', image: tofu3 },
+      { name: 'Tofu Tikka Masala', image: tofu4 },
+      { name: 'Tofu Lasagna', image: tofu5 },
+      { name: 'Tofu Steak', image: tofu6 },
+    ],
   },
   {
     id: 8,
     theme: 'future',
-    title: 'What Could Be',
-    subtitle: 'Imagining Tomorrow',
-    body: 'Imagination is the seed of all progress. By daring to dream, we plant the seeds for a future worth striving towards.',
+    question: "What's the first thing you're going to do when you wake up?",
   },
   {
     id: 9,
     theme: 'future',
-    title: 'Building Forward',
-    subtitle: 'Steps to Tomorrow',
-    body: 'Every small action today ripples into tomorrow. We build the future one intention, one decision at a time.',
-  },
-  {
-    id: 10,
-    theme: 'future',
-    title: 'The Journey Continues',
-    subtitle: 'Forever Evolving',
-    body: 'This is not the end, but a new beginning. The story goes on, shaped by all who dare to be part of it.',
+    title: "What's the first thing you're going to do when you wake up if you are a",
+    highlightedWord: 'SpongeBob?',
+    imageUrl: spongebob,
   },
 ];

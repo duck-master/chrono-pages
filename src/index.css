@@ -37,26 +37,26 @@
 
     --radius: 0.75rem;
 
-    /* Theme: Past - Sepia/Amber tones */
-    --past-bg: 38 70% 90%;
-    --past-accent: 25 80% 35%;
-    --past-accent-light: 30 60% 75%;
-    --past-text: 25 40% 20%;
-    --past-muted: 30 25% 55%;
+    /* Theme: Past - Warm Sepia/Brown tones (nostalgic) */
+    --past-bg: 35 60% 92%;
+    --past-accent: 20 70% 40%;
+    --past-accent-light: 25 50% 70%;
+    --past-text: 20 35% 22%;
+    --past-muted: 25 25% 45%;
 
-    /* Theme: Present - Golden Yellow/Green */
-    --present-bg: 50 75% 92%;
-    --present-accent: 85 50% 40%;
-    --present-accent-light: 70 45% 70%;
-    --present-text: 60 30% 18%;
-    --present-muted: 55 20% 50%;
+    /* Theme: Present - Fresh Green tones (alive, current) */
+    --present-bg: 48 70% 93%;
+    --present-accent: 140 55% 35%;
+    --present-accent-light: 130 40% 65%;
+    --present-text: 140 30% 18%;
+    --present-muted: 130 20% 40%;
 
-    /* Theme: Future - Yellow/Cyan */
-    --future-bg: 55 65% 93%;
-    --future-accent: 185 65% 40%;
-    --future-accent-light: 180 50% 70%;
-    --future-text: 190 25% 20%;
-    --future-muted: 180 20% 50%;
+    /* Theme: Future - Cool Cyan/Blue tones (forward-looking) */
+    --future-bg: 52 60% 94%;
+    --future-accent: 195 70% 42%;
+    --future-accent-light: 190 55% 68%;
+    --future-text: 200 30% 20%;
+    --future-muted: 195 25% 45%;
 
     /* Typography */
     --font-heading: 'Playfair Display', serif;
@@ -143,7 +143,7 @@
 
 @layer components {
   .page-container {
-    @apply min-h-screen w-full flex flex-col items-center justify-center p-8 md:p-16;
+    @apply min-h-screen w-full flex flex-col items-center justify-center p-6 md:p-12 pb-24;
     background-color: hsl(var(--page-bg));
     transition: background-color 0.6s ease-in-out;
   }
@@ -151,19 +151,37 @@
   .page-heading {
     font-family: var(--font-heading);
     color: hsl(var(--page-text));
-    @apply text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6;
+    @apply text-5xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-8;
   }
 
   .page-subheading {
     font-family: var(--font-heading);
     color: hsl(var(--page-accent));
-    @apply text-xl md:text-2xl font-medium mb-4;
+    @apply text-2xl md:text-3xl font-medium mb-6;
   }
 
   .page-body {
     font-family: var(--font-body);
     color: hsl(var(--page-muted));
-    @apply text-lg md:text-xl leading-relaxed max-w-2xl;
+    @apply text-xl md:text-2xl leading-relaxed max-w-3xl;
+  }
+
+  .page-highlight {
+    color: hsl(var(--page-accent));
+    font-weight: 600;
+  }
+
+  .page-list-item {
+    font-family: var(--font-body);
+    color: hsl(var(--page-text));
+    @apply text-xl md:text-2xl py-3 px-6 rounded-xl mb-3;
+    background-color: hsl(var(--page-accent-light) / 0.25);
+  }
+
+  .page-question {
+    font-family: var(--font-heading);
+    color: hsl(var(--page-accent));
+    @apply text-2xl md:text-3xl font-medium italic mt-8;
   }
 
   .accent-dot {
