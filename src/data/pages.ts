@@ -68,7 +68,7 @@ export const pagesData: PageData[] = [
     title: "These are dishes made with",
     highlightedWord: "tofu",
     question: "Which dish do you want to try?",
-    tofuDishes: [
+    dishes: [
       { name: "Agedashi Tofu", image: tofu1 },
       { name: "Sundubu Jjigae", image: tofu2 },
       { name: "Tahu Goreng", image: tofu3 },

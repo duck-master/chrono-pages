@@ -133,7 +133,7 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
         )}
 
         {/* Main Image */}
-        {page.imageUrl && !page.tofuDishes && (
+        {page.imageUrl && !page.dishes && (
           <div
             className={`mt-10 mx-auto ${page.prompts || page.funFacts ? "max-w-[180px]" : "max-w-md"
               } aspect-square `}
@@ -148,13 +148,13 @@ export const PageContent = ({ page, isActive }: PageContentProps) => {
         )}
 
         {/* Tofu dishes grid */}
-        {page.tofuDishes && (
+        {page.dishes && (
           <>
             <div
               className={`mt-8 grid grid-cols-2 md:grid-cols-3 gap-4 `}
               style={{ animationDelay: "0.4s" }}
             >
-              {page.tofuDishes.map((dish, index) => (
+              {page.dishes.map((dish, index) => (
                 <div
                   key={index}
                   onClick={() => dish.url && window.open(dish.url, "_blank")}
