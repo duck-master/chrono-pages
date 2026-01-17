@@ -15,6 +15,14 @@ const getThemeClass = (theme: Theme): string => {
   return `theme-${theme}`;
 };
 
+// Map theme to distinct HSL accent colors
+const themeAccentColors: Record<Theme, string> = {
+  welcome: '140 55% 35%',  // green (same as present)
+  past: '20 70% 40%',      // warm brown
+  present: '140 55% 35%',  // green
+  future: '195 70% 42%',   // cyan blue
+};
+
 export const PageNavigation = ({
   currentPage,
   totalPages,
@@ -40,35 +48,37 @@ export const PageNavigation = ({
             }
           `}
           style={{ 
-            backgroundColor: 'hsl(var(--page-accent) / 0.2)',
-            color: 'hsl(var(--page-accent))'
+            backgroundColor: `hsl(${themeAccentColors[currentTheme]} / 0.2)`,
+            color: `hsl(${themeAccentColors[currentTheme]})`
           }}
           aria-label="Previous page"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
 
-        {/* Page dots */}
+        {/* Page dots - each with its own theme color */}
         <div className="flex items-center gap-2">
-          {pages.map((page, index) => (
-            <button
-              key={page.id}
-              onClick={() => onGoToPage(index)}
-              className={`
-                transition-all duration-300 rounded-full
-                ${index === currentPage 
-                  ? 'w-8 h-3' 
-                  : 'w-3 h-3 hover:scale-125'
-                }
-              `}
-              style={{
-                backgroundColor: index === currentPage
-                  ? 'hsl(var(--page-accent))'
-                  : 'hsl(var(--page-accent) / 0.3)',
-              }}
-              aria-label={`Go to page ${index + 1}`}
-            />
-          ))}
+          {pages.map((page, index) => {
+            const dotColor = themeAccentColors[page.theme];
+            const isActive = index === currentPage;
+            
+            return (
+              <button
+                key={page.id}
+                onClick={() => onGoToPage(index)}
+                className={`
+                  transition-all duration-300 rounded-full
+                  ${isActive ? 'w-8 h-3' : 'w-3 h-3 hover:scale-125'}
+                `}
+                style={{
+                  backgroundColor: isActive
+                    ? `hsl(${dotColor})`
+                    : `hsl(${dotColor} / 0.4)`,
+                }}
+                aria-label={`Go to page ${index + 1}`}
+              />
+            );
+          })}
         </div>
 
         {/* Next button */}
@@ -83,8 +93,8 @@ export const PageNavigation = ({
             }
           `}
           style={{ 
-            backgroundColor: 'hsl(var(--page-accent) / 0.2)',
-            color: 'hsl(var(--page-accent))'
+            backgroundColor: `hsl(${themeAccentColors[currentTheme]} / 0.2)`,
+            color: `hsl(${themeAccentColors[currentTheme]})`
           }}
           aria-label="Next page"
         >
